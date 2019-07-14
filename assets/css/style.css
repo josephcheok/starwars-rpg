@@ -41,5 +41,14 @@ span {
 .slot6,
 .slot7,
 .slot8 {
+  background-color: yellow;
+}
+
+.slot9 {
   background-color: red;
+}
+
+.title9,
+.hp9 {
+  color: white;
 }
