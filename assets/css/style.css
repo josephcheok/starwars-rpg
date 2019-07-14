@@ -1,0 +1,45 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(../images/DeathStar.png);
+  background-size: 2000px;
+  font-family: Times, serif, "Helvetica Neue", Helvetica, sans-serif;
+  color: yellow;
+}
+
+img {
+  width: 200px;
+  height: 136px;
+}
+
+span {
+  color: black;
+  font-size: 1.1em;
+}
+
+.slot1,
+.slot2,
+.slot3,
+.slot4,
+.slot5,
+.slot6,
+.slot7,
+.slot8,
+.slot9 {
+  height: 188px;
+  width: 240px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  background-color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.slot6,
+.slot7,
+.slot8 {
+  background-color: red;
+}

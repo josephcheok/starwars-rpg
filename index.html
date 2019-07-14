@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <title>Star Wars RPG</title>
+  </head>
+  <body>
+    <div class="container heropool">
+      <div class="row heroes">
+        <div class="col-md-2.5 slot1">
+          <span id="title-hero1"></span>
+          <div class="hero1"></div>
+          <span id="hp-hero1"></span>
+        </div>
+        <div class="col-md-2.5 slot2">
+          <span id="title-hero2"></span>
+          <div class="hero2"></div>
+          <span id="hp-hero2"></span>
+        </div>
+        <div class="col-md-2.5 slot3">
+          <span id="title-hero3"></span>
+          <div class="hero3"></div>
+          <span id="hp-hero3"></span>
+        </div>
+        <div class="col-md-2.5 slot4">
+          <span id="title-hero4"></span>
+          <div class="hero4"></div>
+          <span id="hp-hero4"></span>
+        </div>
+      </div>
+      <div class="row">
+        <h2>Your Character</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-2.5 slot5">
+          <span id="title-myhero"></span>
+          <div class="myhero"></div>
+          <span id="hp-myhero"></span>
+        </div>
+      </div>
+      <div class="row">
+        <h2>Enemies Available To Attack</h2>
+      </div>
+      <div class="row enemies">
+        <div class="col-md-2.5 slot6">
+          <span id="title-enemy1"></span>
+          <div class="enemy1"></div>
+          <span id="hp-enemy1"></span>
+        </div>
+        <div class="col-md-2.5 slot7">
+          <span id="title-enemy2"></span>
+          <div class="enemy2"></div>
+          <span id="hp-enemy2"></span>
+        </div>
+        <div class="col-md-2.5 slot8">
+          <span id="title-enemy3"></span>
+          <div class="enemy3"></div>
+          <span id="hp-enemy3"></span>
+        </div>
+      </div>
+      <div class="row fight">
+        <h2>Fight Section</h2>
+      </div>
+      <div class="row attack"></div>
+      <button id="attack">Attack</button>
+      <div class="row">
+        <h2>Defender</h2>
+      </div>
+        <div class="row enemy">
+          <div class="col-md-2.5 slot9">
+            <span id="title-defender"></span>
+            <div class="defender"></div>
+            <span id="hp-defender"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+  </body>
+</html>
