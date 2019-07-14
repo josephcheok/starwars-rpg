@@ -1,7 +1,7 @@
 var hero1 = {
   name: "Luke Skywalker",
-  hp: 120,
-  at: 8,
+  hp: 150,
+  at: 10,
   cat: 15,
   imgURL: "assets/images/Luke.jpg",
   chosen: false
@@ -9,9 +9,9 @@ var hero1 = {
 
 var hero2 = {
   name: "Boba Fett",
-  hp: 150,
+  hp: 200,
   at: 10,
-  cat: 20,
+  cat: 18,
   imgURL: "assets/images/Boba.jpeg",
   chosen: false
 };
@@ -29,7 +29,7 @@ var hero4 = {
   name: "Darth Vader",
   hp: 240,
   at: 20,
-  cat: 25,
+  cat: 22,
   imgURL: "assets/images/Vader.webp",
   chosen: false
 };
@@ -50,6 +50,7 @@ var myHeroAT = 0;
 var myEnemyHP = 0;
 var myEnemyCAT = 0;
 var counter = 0;
+var myEnemyName = "";
 
 for (i = 1; i < objectHero.length + 1; i++) {
   var heroImage = $("<img>");
@@ -103,6 +104,7 @@ $(".heroimage").on("click", function() {
       enemyImage.attr("hp", objectHero[i - 1].hp);
       enemyImage.attr("cat", objectHero[i - 1].cat);
       enemyImage.attr("name", objectHero[i - 1].name);
+      enemyImage.attr("parent", "slot" + j); //to enable click to find name of parent division to hide
       $(".enemies").append('<div class="col-md-2.5 slot"></div>');
       $(".slot").addClass("slot" + j);
       $("div").removeClass("slot");
@@ -130,6 +132,7 @@ $(".heroimage").on("click", function() {
     if (enemyChosen === false) {
       var myEnemyHP = $(this).attr("hp");
       var myEnemyCAT = $(this).attr("cat"); // HP and attack power of hero chosen tracked
+      var myEnemyName = $(this).attr("name");
       var myEnemyImage = $(this).attr("src");
       var heroNameChosen = $(this).attr("name"); // name property of image chosen to use indexOf function to remove hero from array
       objectHero[objectHeroName.indexOf(heroNameChosen)].chosen = true;
@@ -142,35 +145,8 @@ $(".heroimage").on("click", function() {
       $(".pic9").html("<img src=" + myEnemyImage + ">");
       $(".title9").html($(this).attr("name")); //this used instead of heroImage as it will refer to last hero image appendeded
       $(".hp9").html($(this).attr("hp"));
-      // $(".defender").html("<img src=" + myEnemyImage + ">");
-      // $("#title-defender").html($(this).attr("name")); //this used instead of heroImage as it will refer to last hero image appendeded
-      // $("#hp-defender").html($(this).attr("hp"));
+      $("." + $(this).attr("parent")).hide();
       enemyChosen = true;
-      resetEnemyRow();
-      for (i = 1; i < objectHero.length + 1; i++) {
-        var j = i + 5; //start with slot6 as slot1 to 5 have been taken.
-        var enemyImage = $("<img>");
-        enemyImage.addClass("enemyimage");
-        enemyImage.attr("src", objectHero[i - 1].imgURL);
-        enemyImage.attr("hp", objectHero[i - 1].hp);
-        enemyImage.attr("at", objectHero[i - 1].at);
-        enemyImage.attr("name", objectHero[i - 1].name);
-        $(".enemies").append('<div class="col-md-2.5 slot"></div>');
-        $(".slot").addClass("slot" + j);
-        $("div").removeClass("slot");
-        $(".slot" + j).append('<span class="title"></span>');
-        $(".title").addClass("title" + j);
-        $("span").removeClass("title");
-        $(".slot" + j).append('<div class="pic"></span>');
-        $(".pic").addClass("pic" + j);
-        $("div").removeClass("pic");
-        $(".slot" + j).append('<span class="hp"></span>');
-        $(".hp").addClass("hp" + j);
-        $("span").removeClass("hp");
-        $(".pic" + j).html(enemyImage); //image of hero appended in empty div
-        $(".title" + j).html(enemyImage.attr("name"));
-        $(".hp" + j).html(enemyImage.attr("hp"));
-      }
       console.log("His Hit Points : " + myEnemyHP);
       console.log("His Attack :" + myEnemyCAT);
       console.log(objectHero);
@@ -183,20 +159,34 @@ $(".heroimage").on("click", function() {
         myEnemyHP -= myHeroPower;
         $(".hp5").html(myHeroHP);
         $(".hp9").html(myEnemyHP);
-        if (myEnemyHP < 1) {
+        $(".message1").html(
+          "You attacked " + myEnemyName + " for " + myHeroPower + " damage."
+        );
+        $(".message2").html(
+          myEnemyName + " attacked you back for " + myEnemyCAT + " damage."
+        );
+        if (myHeroHP < 1) {
+          alert("You Lose!");
+          return;
+        }
+        if (myEnemyHP < 1 && objectHero.length > 0) {
           $(".defender").empty();
+          $(".message1").empty();
+          $(".message2").empty();
           enemyChosen = false;
           alert("Select another enemy!");
+        } else if (myEnemyHP < 1 && objectHero.length === 0) {
+          $(".message1").html("YOU WIN!");
+          $(".message1").css("font-size", "+=10");
+          $(".message2").empty();
         }
-        if (myHeroHP < 1) {
-          alert("You lose!");
-        }
-
-        console.log(myHeroHP);
-        console.log(myEnemyCAT);
-        console.log(myEnemyHP);
-        console.log(myHeroPower);
       }
+
+      console.log(myHeroHP);
+      console.log(myEnemyCAT);
+      console.log(myEnemyHP);
+      console.log(myHeroPower);
     });
+    console.log(enemyChosen);
   });
 });
